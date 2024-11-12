@@ -79,10 +79,7 @@ CONFIG=$HOME/.config
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zoxide) 
-
-# Set cd to use zoxide instead of normal cd
-export ZOXIDE_CMD_OVERRIDE="cd"
+plugins=(git) 
 
 source $ZSH/oh-my-zsh.sh
 source $CONFIG/.aliases
@@ -115,3 +112,7 @@ alias zshr="source ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+
+eval "$(zoxide init --cmd cd zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
