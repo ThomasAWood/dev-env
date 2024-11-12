@@ -1,0 +1,7 @@
+# eza: an alternative to ls.
+alias ld='eza -lD' # list all directories (no files)
+alias lf='eza -lF --color=always | grep -v /' # list all files (no directories)
+# alias lh='eza -dl .* --group-directories-first'
+alias la='eza -al --group-directories-first' # list all, including hidden, directories first
+alias ls='eza --icons=always' # list with icons
+alias lt='eza -al --sort=modified' # list by modification time, most recent first

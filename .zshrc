@@ -70,7 +70,7 @@ ENABLE_CORRECTION="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-CONFIG=$HOME/config
+CONFIG=$HOME/.config
 # ZSH_CUSTOM=$CONFIG/zsh_custom_plugins
 
 
@@ -116,27 +116,25 @@ alias zshr="source ~/.zshrc"
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
-# PyEnv Setup
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# # PyEnv Setup
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tom/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/tom/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/tom/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/tom/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Adding a comment to trigger a commit
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/tom/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/tom/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/tom/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/tom/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
