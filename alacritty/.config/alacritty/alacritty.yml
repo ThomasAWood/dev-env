@@ -1,0 +1,6 @@
+font:
+  normal:
+    family: "Hack Nerd Font"
+
+import:
+ - ~/.config/alacritty/themes/themes/city_lights.yaml
