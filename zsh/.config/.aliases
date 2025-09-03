@@ -5,3 +5,8 @@ alias lf='eza -lF --color=always | grep -v /' # list all files (no directories)
 alias la='eza -al --group-directories-first' # list all, including hidden, directories first
 alias ls='eza --icons=always' # list with icons
 alias lt='eza -al --sort=modified' # list by modification time, most recent first
+
+# TaskWarrior: task management tool
+alias work='task context work'
+alias job='task context job'
+alias personal='task context personal'
