@@ -18,5 +18,11 @@ File Structure:
 Each new folder in this repo is a package.
 To create a new package, create a new folder with that packages name.
 
-# Tool Notes
+# Individual Tool Notes
 - Karabiner Elements is MacOS ONLY! So don't stow when on Linux/Windows
+- Raycast
+  - Is installed by Brewfile, but settings aren't stored in dotfile format.
+  - Raycast has an export/import settings feature, use that.
+
+# Branching Strategy
+Creating a separate branch for different configs. E.g. a new branch for a work laptop or a windows laptop etc.
