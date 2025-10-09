@@ -1,5 +1,3 @@
-import = ["/Users/tom/.config/alacritty/themes/themes/city_lights.yaml"]
-
 [window]
 padding.x = 10
 padding.y = 10
