@@ -115,7 +115,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Caps Lock: tap for Escape, hold for Cmd+Ctrl+Opt",
+                                "description": "Change caps_lock to command+control+option+shift.",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": { "optional": ["any"] }
@@ -126,7 +126,6 @@
                                         "modifiers": ["left_control", "left_option"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             }
                         ]
