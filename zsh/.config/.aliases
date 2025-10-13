@@ -5,3 +5,8 @@ alias lf='eza -lF --color=always | grep -v /' # list all files (no directories)
 alias la='eza -al --group-directories-first' # list all, including hidden, directories first
 alias ls='eza --icons=always' # list with icons
 alias lt='eza -al --sort=modified' # list by modification time, most recent first
+
+# TMUX Aliases
+alias tls='tmux list-sessions'
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
