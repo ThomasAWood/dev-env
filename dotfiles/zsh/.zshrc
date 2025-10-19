@@ -95,6 +95,8 @@ source $CONFIG/.aliases
 alias zshc="nvim ~/.zshrc"
 alias zshr="source ~/.zshrc"
 
+export GOPATH=$HOME/go
+
 eval "$(oh-my-posh init zsh --config multiverse-neon)"
 
 eval "$(zoxide init --cmd cd zsh)"
