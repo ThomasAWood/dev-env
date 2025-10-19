@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f "Brewfile" ]; then
+    brew bundle
+    echo "All Brewfile dependencies installed"
+else
+    echo "Brewfile not found!"
+    exit 1
+fi

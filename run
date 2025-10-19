@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 script_dir="$ (cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)"
 dry=0
@@ -13,8 +13,12 @@ while [[ $# > 0 ]]; do
 	shift
 done
 
+# ============================================
+# HELPER FUNCTIONS
+# ============================================
+
 log () {
-	if [[ $dry == "1"]]; then
+	if [[ $dry == "1" ]]; then
 		echo "[DRY_RUN]: $1"
 	else
 		echo "$1"
@@ -30,15 +34,45 @@ execute() {
 	"$@"
 }
 
-scripts=`find $script_dir/runs -mindepth 1 -maxdepth 1 -executable`
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+scripts=`find ./runs -mindepth 1 -maxdepth 1 -type f -perm +111`
 
 log "-------------- DEV ENVIRONMENT SETUP --------------"
 
-for s in $runs_dir; do
-	if echo "$s" | grep -qv "$filter"; then
-		echo "[FILTERING]: $s"
+# ============================================
+# 1. Install Homebrew (macOS package manager)
+# ============================================
+echo "Step 1: Checking if Homebrew is installed..."
+if ! command_exists brew; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Add Homebrew to PATH for Apple Silicon Macs
+    if [[ $(uname -m) == 'arm64' ]]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        # Intel Mac
+        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
+    echo "Homebrew installed and added to PATH"
+else
+    echo "Homebrew already installed"
+fi
+
+# ============================================
+# 2. Run each installation script
+# ============================================
+
+for script in $scripts; do
+	if echo "$script" | grep -qv "$filter"; then
+		echo "[FILTERING]: $script"
 		continue
 	fi
-
-	execute $s
+	echo $script
+	execute $script
 done
