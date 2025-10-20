@@ -1,4 +1,3 @@
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -86,16 +85,11 @@ source $CONFIG/.aliases
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshc="nvim ~/.zshrc"
-alias zshr="source ~/.zshrc"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 export GOPATH=$HOME/go
+export PATH="$PATH:$GOPATH/bin"
 
 eval "$(oh-my-posh init zsh --config multiverse-neon)"
 
@@ -113,3 +107,13 @@ export PATH="$PATH:/Users/tom/.local/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+# Add custom ready-tmux script to path
+export PATH="$PATH:$HOME/.local/scripts"
+
+tmux-sessioniser-widget() { 
+	tmux-sessioniser 
+}
+zle -N tmux-sessioniser-widget
+
+bindkey '^[f' tmux-sessioniser-widget

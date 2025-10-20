@@ -2,7 +2,6 @@
 padding.x = 10
 padding.y = 10
 decorations = "Buttonless"
-opacity = 0.8
 
 [font.normal]
 family = "Hack Nerd Font"
@@ -11,6 +10,7 @@ family = "Hack Nerd Font"
 bindings = [
     # Remap Hyper-Space to M-Space
     { key = "Space", mods = "Command | Option | Control", chars = "\u001b " },
-    { key = "H", mods = "Command | Option | Control", chars = "\u001bH" },
-    { key = "L", mods = "Command | Option | Control", chars = "\u001bL" },
+#    { key = "H", mods = "Command | Option | Control", chars = "\u001bH" },
+#    { key = "L", mods = "Command | Option | Control", chars = "\u001bL" },
+    { key = "f", mods = "Command | Option | Control", chars = "\u001bf" },
 ]
