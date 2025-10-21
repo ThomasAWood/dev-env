@@ -10,3 +10,6 @@ alias lt='eza -al --sort=modified' # list by modification time, most recent firs
 alias tls='tmux list-sessions'
 alias tn='tmux new -s'
 alias ta='tmux attach -t'
+
+# Yazi File Explorer Alias
+alias y='yazi'

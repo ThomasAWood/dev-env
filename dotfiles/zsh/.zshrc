@@ -108,6 +108,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
+export EDITOR=nvim
 # Add custom ready-tmux script to path
 export PATH="$PATH:$HOME/.local/scripts"
 

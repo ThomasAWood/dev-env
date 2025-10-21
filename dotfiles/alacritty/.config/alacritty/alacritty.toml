@@ -10,7 +10,11 @@ family = "Hack Nerd Font"
 bindings = [
     # Remap Hyper-Space to M-Space
     { key = "Space", mods = "Command | Option | Control", chars = "\u001b " },
-#    { key = "H", mods = "Command | Option | Control", chars = "\u001bH" },
-#    { key = "L", mods = "Command | Option | Control", chars = "\u001bL" },
+    { key = "h", mods = "Command | Option | Control", chars = "\u001bh" },
+    { key = "j", mods = "Command | Option | Control", chars = "\u001bj" },
+    { key = "k", mods = "Command | Option | Control", chars = "\u001bk" },
+    { key = "l", mods = "Command | Option | Control", chars = "\u001bl" },
     { key = "f", mods = "Command | Option | Control", chars = "\u001bf" },
+    { key = ";", mods = "Command | Option | Control", chars = "\u001b;" },
+    { key = "'", mods = "Command | Option | Control", chars = "\u001b'" },
 ]
