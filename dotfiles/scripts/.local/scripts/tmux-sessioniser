@@ -9,7 +9,7 @@ selected_name=$(basename $selected | tr ":,. " "----")
 
 switch_to() {
 	if [[ -z "$TMUX" ]]; then
-		tmux attach-session -t $selected_name
+		exec tmux attach -t $selected_name
 	else
 		tmux switch-client -t $selected_name
 	fi
@@ -18,9 +18,9 @@ switch_to() {
 
 if tmux has-session -t=$selected_name 2> /dev/null; then
 	switch_to
-	exit 0
+else
+	echo "4"
+	tmux new-session -ds $selected_name -c $selected
+	tmux send-keys -t $selected_name "ready-tmux" Enter
+	switch_to
 fi
-
-tmux new-session -ds $selected_name -c $selected
-switch_to
-tmux send-keys -t $selected_name "ready-tmux" Enter

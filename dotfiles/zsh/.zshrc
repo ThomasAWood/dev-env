@@ -112,9 +112,4 @@ export EDITOR=nvim
 # Add custom ready-tmux script to path
 export PATH="$PATH:$HOME/.local/scripts"
 
-tmux-sessioniser-widget() { 
-	tmux-sessioniser 
-}
-zle -N tmux-sessioniser-widget
-
-bindkey '^[f' tmux-sessioniser-widget
+bindkey -s '^[f' '^Qtmux-sessioniser^M'

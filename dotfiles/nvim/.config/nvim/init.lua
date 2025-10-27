@@ -133,9 +133,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- [[ Tom's Keymaps!! ]]
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle file [e]xplorer' })
-vim.keymap.set('n', '<leader>E', ':NvimTreeFocus<CR>', { desc = 'Focus file [E]xplorer' })
-
 vim.keymap.set('n', '<A-;>', ':vsplit<CR><C-w>l', { desc = 'Vertical Split' })
 vim.keymap.set('n', "<A-'>", ':split<CR><C-w>j', { desc = 'Horizontal Split' })
 
@@ -606,8 +603,8 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        gopls = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -615,7 +612,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
