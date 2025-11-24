@@ -1,7 +1,9 @@
 # Neovim Configuration Overview
 
-### editor.lua
-**Visual enhancements and editing improvements**
+## editor.lua
+
+Visual enhancements and editing improvements
+
 - **mini.nvim** - Collection of utilities:
   - mini.ai: Enhanced text objects (inside/around)
   - mini.surround: Add/delete/replace surroundings (brackets, quotes)
@@ -11,8 +13,10 @@
 - **tokyonight.nvim** - Colorscheme (tokyonight-night variant)
 - **todo-comments.nvim** - Highlights TODO, FIXME, etc. in comments
 
-### telescope.lua
-**Fuzzy finder for everything**
+## telescope.lua
+
+Fuzzy finder for everything
+
 - File search (`<leader>sf`)
 - Live grep (`<leader>sg`)
 - Help tags (`<leader>sh`)
@@ -22,8 +26,10 @@
 - Current buffer search (`<leader>/`)
 - Extensions: fzf-native for performance, ui-select for better selection UI
 
-### lsp.lua
-**Language Server Protocol configuration**
+## lsp.lua
+
+Language Server Protocol configuration
+
 - **mason.nvim** - LSP/tool installer
 - **nvim-lspconfig** - LSP configurations
 - **mason-lspconfig** - Bridge between Mason and lspconfig
@@ -31,28 +37,36 @@
 - **fidget.nvim** - LSP status updates
 - Integrates with blink.cmp for completion capabilities
 
-### completion.lua
-**Autocompletion engine**
+## completion.lua
+
+Autocompletion engine
+
 - **blink.cmp** - Main completion plugin
 - **LuaSnip** - Snippet engine
 - Integrates with lazydev for Neovim Lua API completion
 
-### treesitter.lua
-**Syntax highlighting and code understanding**
+## treesitter.lua
+
+Syntax highlighting and code understanding
+
 - Advanced syntax highlighting
 - Auto-installs language parsers
 - Enables treesitter-based indentation
 - Pre-installed parsers: bash, c, diff, html, lua, markdown, vim, and more
 
-### formatting.lua
-**Code formatting**
+## formatting.lua
+
+Code formatting
+
 - **conform.nvim** - Format on save and manual formatting
 - Keymap: `<leader>f` to format buffer
 - Auto-formats on save (with fallback to LSP)
 - Configured formatters by filetype (e.g., stylua for Lua)
 
-### git.lua
-**Git integration**
+## git.lua
+
+Git integration
+
 - **gitsigns.nvim** - Git signs in gutter
 - Navigate changes: `]c` next, `[c` previous
 - Stage/reset hunks: `<leader>hs`, `<leader>hr`
@@ -60,15 +74,18 @@
 - Diff views: `<leader>hd`, `<leader>hD`
 - Toggle line blame: `<leader>tb`
 
-### which-key.lua
+## which-key.lua
+
 **Keymap hints**
 Shows popup of available keybindings when you start typing a key sequence
 
-### debug.lua
+## debug.lua
+
 **DAP (Debug Adapter Protocol)**
 Debug support for running and debugging code
 
-### tmux-navigator.lua
+## tmux-navigator.lua
+
 **Tmux integration**
 Seamless navigation between Neovim splits and tmux panes
 

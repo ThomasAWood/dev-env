@@ -88,6 +88,7 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
 
+vim.o.tabstop = 4
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -112,6 +113,12 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 
 vim.keymap.set('n', '<A-;>', ':vsplit<CR><C-w>l', { desc = 'Vertical Split' })
 vim.keymap.set('n', "<A-'>", ':split<CR><C-w>j', { desc = 'Horizontal Split' })
+
+-- Lua (Neovim)
+vim.keymap.set('n', '<leader>aq', function()
+  vim.cmd 'caddexpr expand("%") . ":" . line(".") . ":" . col(".") . ":" . getline(".")'
+  print 'Added to quickfix list'
+end, { desc = 'Add current line to quickfix' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
