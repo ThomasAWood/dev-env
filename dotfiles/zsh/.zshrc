@@ -93,7 +93,9 @@ export PATH="$PATH:$GOPATH/bin"
 
 eval "$(oh-my-posh init zsh --config multiverse-neon)"
 
-eval "$(zoxide init --cmd cd zsh)"
+if [[ "$CLAUDECODE" != "1" ]]; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -113,3 +115,4 @@ export EDITOR=nvim
 export PATH="$PATH:$HOME/.local/scripts"
 
 bindkey -s '^[f' '^Qtmux-sessioniser^M'
+bindkey -s '^[g' '^Qlazygit^M'

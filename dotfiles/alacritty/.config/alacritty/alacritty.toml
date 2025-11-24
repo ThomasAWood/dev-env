@@ -15,6 +15,7 @@ bindings = [
     { key = "k", mods = "Command | Option | Control", chars = "\u001bk" },
     { key = "l", mods = "Command | Option | Control", chars = "\u001bl" },
     { key = "f", mods = "Command | Option | Control", chars = "\u001bf" },
+    { key = "g", mods = "Command | Option | Control", chars = "\u001bg" },
     { key = ";", mods = "Command | Option | Control", chars = "\u001b;" },
     { key = "'", mods = "Command | Option | Control", chars = "\u001b'" },
 ]
