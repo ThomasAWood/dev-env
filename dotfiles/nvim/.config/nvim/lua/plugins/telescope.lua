@@ -50,12 +50,17 @@ return {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
-      -- pickers = {}
+      defaults = {
+        mappings = {
+          i = { ['<c-enter>'] = 'to_fuzzy_refine', ['<c-d>'] = require('telescope.actions').delete_buffer },
+          n = { ['<leader>d'] = require('telescope.actions').delete_buffer },
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -69,6 +74,7 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
+    local actions = require 'telescope.actions'
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
