@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [[ -x ./.tmux-start ]]; then
+	./.tmux-start
+fi
+clear

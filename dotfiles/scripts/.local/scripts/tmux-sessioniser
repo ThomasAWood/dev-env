@@ -1,8 +1,46 @@
 #!/bin/bash
 
-selected=$({ echo ~/dev-env; find -L ~/dev-env ~/repos -mindepth 1 -maxdepth 1 -type d; } | fzf)
-if [[ -z "$selected" ]]; then
-	exit 0
+# Configure search paths with optional depth (default: 1)
+SEARCH_PATHS=(~/dev-env:0 ~/repos:1)
+
+# Build directory list from search paths
+find_dirs() {
+	for entry in "${SEARCH_PATHS[@]}"; do
+		# Parse path and optional depth
+		if [[ "$entry" =~ ^([^:]+):([0-9]+)$ ]]; then
+			path="${BASH_REMATCH[1]}"
+			depth="${BASH_REMATCH[2]}"
+		else
+			path="$entry"
+			depth=1
+		fi
+
+		# Expand tilde
+		path="${path/#\~/$HOME}"
+
+		if [[ "$depth" -eq 0 ]]; then
+			# Include only the specified directory itself
+			[[ -d "$path" ]] && echo "$path"
+		else
+			# Search with specified depth, excluding .git directories
+			[[ -d "$path" ]] && find -L "$path" -mindepth 1 -maxdepth "$depth" -path '*/.git' -prune -o -type d -print
+		fi
+	done
+}
+
+# If a directory argument is provided, use it directly
+if [[ -n "$1" ]]; then
+	if [[ -d "$1" ]]; then
+		selected="$1"
+	else
+		echo "Error: '$1' is not a valid directory"
+		exit 1
+	fi
+else
+	selected=$(find_dirs | fzf)
+	if [[ -z "$selected" ]]; then
+		exit 0
+	fi
 fi
 
 selected_name=$(basename $selected | tr ":,. " "----")
@@ -21,6 +59,7 @@ if tmux has-session -t=$selected_name 2> /dev/null; then
 else
 	echo "4"
 	tmux new-session -ds $selected_name -c $selected
-	tmux send-keys -t $selected_name "ready-tmux" Enter
+	tmux send-keys -t $selected_name "tmux-ready" Enter
+	tmux send-keys -t $selected_name "tmux-start" Enter
 	switch_to
 fi

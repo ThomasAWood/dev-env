@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [[ -x ./.tmux-stop ]]; then
+	./.tmux-stop
+fi
+clear

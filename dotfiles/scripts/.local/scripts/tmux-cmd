@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Find all .tmux-* scripts in the current directory (excluding .tmux-ready and .tmux-cmd)
+scripts=$(find . -maxdepth 1 -type f -name '.tmux-*' -perm +111 2>/dev/null | grep -v -e '\.tmux-ready$' -e '\.tmux-cmd$')
+
+# Check if any scripts were found
+if [ -z "$scripts" ]; then
+    echo "No .tmux-* scripts found in current directory"
+    exit 1
+fi
+
+# Use fzf to select a script (strip .tmux- prefix for display)
+selected=$(echo "$scripts" | sed 's|^\./\.tmux-||' | fzf)
+
+# Exit if no selection was made
+if [ -z "$selected" ]; then
+    exit 0
+fi
+
+# Reconstruct the full path and run the selected script
+exec "./.tmux-$selected"
